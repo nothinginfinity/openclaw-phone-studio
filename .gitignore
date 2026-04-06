@@ -1,0 +1,10 @@
+.env
+.env.local
+Render.env
+node_modules/
+data/
+*.db
+*.db-shm
+*.db-wal
+*.log
+npm-debug.log*

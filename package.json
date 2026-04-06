@@ -1,0 +1,23 @@
+{
+  "name": "openclaw-phone-studio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Self-hosted OpenClaw agent for Instagram + Phone Studio integration",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js",
+    "start": "node index.js",
+    "check": "node --check index.js && node --check routes/auth.js && node --check routes/dm.js && node --check routes/posting.js && node --check routes/admin.js && node --check services/instagram.js && node --check services/dmSync.js && node --check services/queue.js && node --check services/scheduler.js && node --check middleware/auth.js && node --check middleware/errorHandler.js && node --check db/db.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.5.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "morgan": "^1.10.0",
+    "uuid": "^11.0.3"
+  }
+}
