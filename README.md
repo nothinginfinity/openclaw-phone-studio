@@ -110,6 +110,17 @@ This is a working backend foundation, not a full production Graph integration ye
 - Approval token enforcement works for queue + approve endpoints
 - Posting publishes through a stub Instagram service
 
+## Current Blocker
+
+Live Instagram automation is still pending final Meta app configuration and OAuth approval testing.
+
+- The Render backend is deployed and reachable.
+- The backend routes for OAuth setup, integration storage, DM sync, and queue handling are in place.
+- The project still needs a confirmed Meta app setup with the correct redirect URI, scopes, account roles, and a successful end-to-end OAuth test against a real Instagram account.
+- Until that is finished, automatic Instagram posting and live DM ingestion should be treated as not yet verified in production.
+
+This does not block the broader Phone Studio product work. The PWA can continue shipping content capture, local organization, search, voice workflows, and content generation without automatic Instagram publishing enabled.
+
 ## Instagram Configuration
 
 The backend defaults to the Facebook-style OAuth + Graph hosts:
