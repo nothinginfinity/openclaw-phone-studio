@@ -1,5 +1,5 @@
 const express = require('express');
-const { all, get } = require('../db/db');
+const { all, get, getActiveDbPath } = require('../db/db');
 const { syncIntegrationToDb } = require('../services/dmSync');
 
 const router = express.Router();
@@ -8,6 +8,7 @@ router.get('/status', (req, res) => {
   res.json({
     service: 'openclaw-phone-studio',
     status: 'ok',
+    dbPath: getActiveDbPath(),
     dmThreads: all('SELECT COUNT(*) AS count FROM dm_threads')[0]?.count || 0,
     queuedPosts: all("SELECT COUNT(*) AS count FROM posting_queue WHERE status = 'pending'")[0]?.count || 0
   });

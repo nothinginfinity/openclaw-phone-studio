@@ -64,11 +64,13 @@ That means:
 
 - Free Render is acceptable for smoke tests.
 - Paid Render with a persistent disk is the right deployment for real usage.
+- If `/var/data` is unavailable at boot, the app now falls back to `./data/phone_studio.db` so the service can still start.
 
 ### Files Included for Render
 
 - [`render.yaml`](./render.yaml): Render Blueprint with build/start commands and env var names
 - [`Render.env.example`](./Render.env.example): reference values to copy into the Render dashboard
+- [`Render.env.bulk.example`](./Render.env.bulk.example): comment-free env list for Render bulk paste
 - [`.env.example`](./.env.example): local development defaults
 
 ### Render Deployment Steps
@@ -78,6 +80,7 @@ That means:
 3. Build command: `npm install`
 4. Start command: `npm start`
 5. Set environment variables from [`Render.env.example`](./Render.env.example).
+   If you use Render's bulk env editor, paste from [`Render.env.bulk.example`](./Render.env.bulk.example) instead of the commented file.
 6. If you want persistent SQLite data, attach a persistent disk and keep `DB_PATH=/var/data/phone_studio.db`.
 7. Set `INSTAGRAM_REDIRECT_URI` to `https://YOUR_RENDER_SERVICE.onrender.com/api/auth/instagram-callback`.
 8. Set `PWA_ORIGIN` to your deployed frontend origin, currently `https://nothinginfinity.github.io/phone-studio`.
